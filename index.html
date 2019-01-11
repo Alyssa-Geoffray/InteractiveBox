@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <title>Jiggle Into JavaScript</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+    <style>
+
+        #box {
+    background-color: orange;
+    height: 150px;
+    width: 150px;
+    margin: 25px;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.header {
+    font-family: fantasy;
+    font-size: 24px;
+    color: blue;
+    text-shadow: 2px 2px rgb(189, 189, 243);
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.bt {
+    font-family: 'fredoka one', cursive;
+    background: rgb(255, 240, 208);
+    color: blue;
+    border: 2px ridge white;
+}
+
+.bt:hover {
+    background: orange;
+    color: rgb(251, 251, 255);
+}
+
+#timestamp {
+    font-family: 'fredoka one', cursive;
+    color: blue;
+    text-shadow: 2px 2px rgb(189, 189, 243);
+}
+</style>
+
+</head>
+
+
+<body>
+    <center>
+        <p class="header">Press the buttons to change the box!</p>
+        <!-- This is our box -->
+        <div id="box" style="height:150px; width:150px; background-color:orange; margin:25px"></div>
+
+        <!-- These are our box buttons -->
+        <button id="growbtn" class='bt'>Grow</button>
+        <button id="bluebtn" class='bt'>Blue</button>
+        <button id="shrinkbtn" class='bt'>Shrink</button>
+        <button id='fadebtn' class='bt'>Fade</button>
+        <button id="resetbtn" class='bt'>Reset</button>
+
+        <!-- This is where the time will be displayed -->
+        <p id="timestamp"></p>
+
+        <!-- This button triggers the #timestamp div -->
+        <button class='bt' onclick="getElementById('timestamp').innerHTML=Date()">Look At The Time!</button>
+
+
+    </center>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        // This code will grow the box by 35px when the 'grow' btn is clicked.
+        $("#growbtn").on("click", function () {
+            $("#box").animate({ height: "+=35px", width: "+=35px" }, "fast");
+        })
+
+        // This will turn the box blue when 'blue' btn is clicked.
+        $("#bluebtn").on("click", function () {
+            $("#box").css("background-color", "blue")
+        })
+
+        // This code shrinks our box by 35px when the 'shrink' button is clicked.
+        $("#shrinkbtn").on("click", function () {
+            $("#box").animate({ height: "-=35px", width: "-=35px" }, "fast");
+        })
+
+        // This code fades the box to 0.3 opacity when 'fade' is clicked.
+        $("#fadebtn").on("click", function () {
+            $("#box").css("opacity", '0.3');
+        })
+
+        // This resets the box to its original size, color, and opacity. It also hides the #timestamp div text.
+        $("#resetbtn").on("click", function () {
+            $("#box").css("background-color", "orange");
+            $("#box").css("width", '150px');
+            $("#box").css("height", "150px");
+            $("#box").css("opacity", "1");
+            $("#timestamp").html("");
+        })
+
+    </script>
+
+</body>
+
+</html>
