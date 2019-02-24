@@ -1,22 +1,28 @@
 <html>
 
 <head>
-    <title>Jiggle Into JavaScript</title>
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <title>Boxy</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Srisakdi" rel="stylesheet">
 
     <style>
 
-        #box {
-    background-color: orange;
+        * {
+            background: ghostwhite;
+        }
+       
+#box {
+    background: rgb(229, 250, 241);
+    border: 2px ridge white;
+    border-radius: 0%;
     height: 150px;
     width: 150px;
     margin: 25px;
-    opacity: 1;
+    opacity: 1.0;
     transition: 0.3s;
 }
 
 .header {
-    font-family: fantasy;
+    font-family: 'Srisakdi', cursive;
     font-size: 24px;
     color: blue;
     text-shadow: 2px 2px rgb(189, 189, 243);
@@ -24,23 +30,112 @@
     transition: 0.3s;
 }
 
+.btngroup {
+    /* padding: 4px; */
+    margin-bottom: 4px;
+}
+
 .bt {
     font-family: 'fredoka one', cursive;
     background: rgb(255, 240, 208);
     color: blue;
     border: 2px ridge white;
+    padding: 8px;
+    
 }
-
 .bt:hover {
     background: orange;
     color: rgb(251, 251, 255);
 }
 
+/* <!-- Colored buttons section --> */
+
+#redbtn {
+    border: 2px ridge red;
+    background: rgb(245, 216, 216);
+}
+#orangebtn {
+    border: 2px ridge orange;
+    background: rgb(231, 222, 205);
+}
+#yellowbtn {
+    border: 2px ridge yellow;
+    background: rgb(243, 243, 219);
+}
+#greenbtn {
+    border: 2px ridge rgb(63, 185, 63);
+    background: rgb(229, 250, 229);
+}
+#bluebtn {
+    border: 2px ridge rgb(0, 102, 255);
+    background: rgb(216, 226, 241);
+}
+#violetbtn {
+    border: 2px ridge violet;
+    background: rgb(238, 220, 238);
+}
+#blackbtn {
+    border: 2px ridge black;
+    background: rgb(238, 238, 238);
+}
+
+#colorfulbtn {
+    border-top: 2px ridge red;
+    border-bottom: 2px ridge orange;
+    border-left: 2px ridge yellow;
+    border-right: 2px ridge yellowgreen;
+}
+
+/* <!-- Elements Buttons Section --> */
+
+#earthbtn {
+    background: url('https://i.imgur.com/Wk4su9r.png');
+    color: rgb(235, 243, 207);
+    text-shadow: 1px 1px rgb(188, 202, 138);
+    border: 2px ridge rgb(235, 243, 207);
+}
+#earthbtn:hover {
+    background: rgb(235, 243, 207);
+}
+#windbtn {
+    background: url("https://i.imgur.com/Po38knK.png") center fixed no-repeat;
+    background-size: cover;
+    color: rgb(235, 243, 207);
+    text-shadow: 1px 1px rgb(59, 73, 10);
+    border: 2px ridge rgb(235, 243, 207);
+}
+#windbtn:hover {
+    background: rgb(59, 73, 10, 0.3);
+}
+#waterbtn {
+    background: url('https://i.imgur.com/GHjhhD1.png');
+    color: rgb(13, 47, 63);
+    text-shadow: 1px 1px rgb(73, 130, 156);
+    border: 2px ridge rgb(73, 130, 156);
+}
+#waterbtn:hover {
+    background: rgb(73, 130, 156, 0.3);
+}
+#firebtn {
+    background: url('https://i.imgur.com/fbXtSC4.png');
+    background-size: cover;
+    color: rgb(243, 209, 209);
+    text-shadow: 1px 1px rgb(58, 11, 11);
+    border: 2px ridge rgb(150, 20, 20);
+}
+#firebtn:hover {
+    background: rgb(58, 11, 11, 0.3);
+}
+
 #timestamp {
-    font-family: 'fredoka one', cursive;
+    font-family: 'Srisakdi', cursive;
     color: blue;
     text-shadow: 2px 2px rgb(189, 189, 243);
 }
+
+
+
+
 </style>
 
 </head>
@@ -49,21 +144,51 @@
 <body>
     <center>
         <p class="header">Press the buttons to change the box!</p>
-        <!-- This is our box -->
-        <div id="box" style="height:150px; width:150px; background-color:orange; margin:25px"></div>
 
-        <!-- These are our box buttons -->
-        <button id="growbtn" class='bt'>Grow</button>
-        <button id="bluebtn" class='bt'>Blue</button>
-        <button id="shrinkbtn" class='bt'>Shrink</button>
-        <button id='fadebtn' class='bt'>Fade</button>
+
+        <!-- Color Btns-->
+        <div id='coloredBtns' class='btngroup'>
+            <button id="redbtn" class='bt colorbt'>Red</button>
+            <button id="orangebtn" class='bt colorbt'>Orange</button>
+            <button id="yellowbtn" class='bt colorbt'>Yellow</button>
+            <button id='greenbtn' class='bt colorbt'>Green</button>
+            <button id="bluebtn" class='bt colorbt'>Blue</button>
+            <button id="violetbtn" class='bt colorbt'>Violet</button>
+            <button id='blackbtn' class='bt colorbt'>Black</button>
+            <button id='colorfulbtn' class='bt colorbt'>Paint Me Random!</button>
+        </div>
+        <br>
+
+        <!-- Shift Btns -->
+        <div id='shiftingBtns' class='btngroup'>
+            <button id="growbtn" class='bt shiftbt'>Grow</button>
+            <button id="shrinkbtn" class='bt shiftbt'>Shrink</button>
+            <button id='fadebtn' class='bt shiftbt'>Fade</button>
+            <button id='warpbtn' class='bt shiftbt'>Warp</button>
+        <!-- </div> -->
+        
+
+        <!-- Elements Btns -->
+        <!-- <div id='elementBtns' class='btngroup'> -->
+            <button id="earthbtn" class='bt elementbt'>Earth</button>
+            <button id='windbtn' class='bt elementbt'>Wind</button>
+            <button id='waterbtn' class='bt elementbt'>Water</button>
+            <button id='firebtn' class='bt elementbt'>Fire</button>
+        </div>
+        <br><br><br>
+
+        <!-- Reset Btn -->
         <button id="resetbtn" class='bt'>Reset</button>
+
 
         <!-- This is where the time will be displayed -->
         <p id="timestamp"></p>
 
         <!-- This button triggers the #timestamp div -->
         <button class='bt' onclick="getElementById('timestamp').innerHTML=Date()">Look At The Time!</button>
+
+        <!-- This is our box -->
+        <div id="box" style="height:150px; width:150px; background:rgb(229, 250, 241); margin:25px; border-radius: 0%;"></div>
 
 
     </center>
@@ -74,35 +199,152 @@
 
     <script type="text/javascript">
 
-        // This code will grow the box by 35px when the 'grow' btn is clicked.
+
+
+        // Color Button Functions
+        /////////////////////////
+
+        // red
+        $("#redbtn").on("click", function () {
+            $("#box").css("background", "rgb(194, 13, 13)");
+            $('#box').css('border', '2px ridge red');
+        })
+        // orange
+        $("#orangebtn").on("click", function () {
+            $("#box").css("background", "rgb(230, 152, 7)");
+            $('#box').css('border', '2px ridge orange');
+        })
+        // yellow
+        $("#yellowbtn").on("click", function () {
+            $("#box").css("background", "rgb(233, 233, 91)");
+            $('#box').css('border', '2px ridge yellow');
+        })
+        // green
+        $("#greenbtn").on("click", function () {
+            $("#box").css("background", "rgb(17, 107, 17)");
+            $('#box').css('border', '2px ridge green');
+        })
+        // blue
+        $("#bluebtn").on("click", function () {
+            $("#box").css("background", "rgb(54, 190, 253)");
+            $('#box').css('border', '2px ridge blue');
+        })
+        // violet
+        $("#violetbtn").on("click", function () {
+            $("#box").css("background", "rgb(197, 27, 197)");
+            $('#box').css('border', '2px ridge purple');
+        })
+        // black
+        $("#blackbtn").on("click", function () {
+            $("#box").css("background", "black");
+            $('#box').css('border', '2px ridge grey');
+        })
+        // box background is changed to a colorful image, chosen randomly from an array.
+        $("#colorfulbtn").on('click', function () {
+            var colorfulArray = ['https://i.imgur.com/lnZTk1e.jpg', 'https://i.imgur.com/gImzZVW.jpg',
+                'https://i.imgur.com/wgbiTvr.jpg', 'https://i.imgur.com/gfgbvjV.jpg',
+                'https://i.imgur.com/sRWK6Kx.jpg', 'https://i.imgur.com/HrQvbrn.jpg',
+                'https://i.imgur.com/hAK9uHc.jpg', 'https://i.imgur.com/pjHZ0JL.png', 'https://i.imgur.com/JsjPcJK.jpg', 'https://i.imgur.com/cGZFBST.jpg',
+                'https://i.imgur.com/KhAvLtC.jpg', 'https://i.imgur.com/dW5kIYg.jpg', 'https://i.imgur.com/xc7OCsb.jpg', 'https://i.imgur.com/q1OGk9r.jpg',
+                'https://i.imgur.com/C0q9Orn.jpg',]
+            var randomColor = colorfulArray[Math.floor(Math.random() * colorfulArray.length)];
+
+            $('#box').css('background', "url(" + randomColor + ") center no-repeat");
+            $('#box').css('background-size', 'cover');
+            $('#box').css('border', '2px 2px ridge red orange yellow green');
+        })
+
+
+
+        // Shift Button Functions
+        //////////////////////////
+
+        // This grow button will grow the box by 35px when clicked.
         $("#growbtn").on("click", function () {
             $("#box").animate({ height: "+=35px", width: "+=35px" }, "fast");
         })
 
-        // This will turn the box blue when 'blue' btn is clicked.
-        $("#bluebtn").on("click", function () {
-            $("#box").css("background-color", "blue")
-        })
-
-        // This code shrinks our box by 35px when the 'shrink' button is clicked.
+        // This code shrinks our box by 35px with the 'shrink' button.
         $("#shrinkbtn").on("click", function () {
             $("#box").animate({ height: "-=35px", width: "-=35px" }, "fast");
         })
 
-        // This code fades the box to 0.3 opacity when 'fade' is clicked.
+        // With each click of 'fade', box transitions from solid to 0.4 opacity to 0.2 opacity, and then back to solid.
         $("#fadebtn").on("click", function () {
-            $("#box").css("opacity", '0.3');
+
+            var x = document.getElementById("box");
+            var currentFade = window.getComputedStyle(x).opacity;
+
+            if(currentFade == '0.4'){
+                $("#box").css("opacity", '0.2');
+            }
+            else if(currentFade == '0.2'){
+                $("#box").css("opacity", '1');
+            }
+            else if(currentFade == '1'){
+                $('#box').css('opacity', '0.4')
+            }
         })
+
+        // The warp button turns our square into a circle by curving the edges of the border
+        $('#warpbtn').on('click', function () {
+           
+            var x = document.getElementById("box");
+            var currentRadius = x.style['border-radius'];
+            // var br = 'border-radius';
+            // var currentRadius = window.getComputedStyle(x, null).br;
+            console.log(x);
+            console.log(currentRadius);
+            if (currentRadius == '0%'){
+                $('#box').css('border-radius', '50%');
+            }
+            else if (currentRadius == '50%') {
+                $('#box').css('border-radius', '30%');
+            } 
+            else if (currentRadius == '30%'){
+                $('#box').css('border-radius', '0%');
+            }
+        })
+
+
+        // Element Button Functions
+        ////////////////////////////
+
+        $("#waterbtn").on('click', function () {
+            $('#box').css('background', "url('https://i.imgur.com/UQ9ZIDm.gif') center fixed no-repeat");
+            $('#box').css('background-size', 'cover');
+            $('#box').css('border', '2px ridge lightblue');
+        })
+        $("#firebtn").on('click', function () {
+            $('#box').css('background', "url('https://i.imgur.com/XaII0IV.gif') center fixed no-repeat");
+            $('#box').css('background-size', 'cover');
+            $('#box').css('border', '2px ridge orange');
+        })
+
+        $("#earthbtn").on('click', function () {
+            $('#box').css('background', "url('https://i.imgur.com/Wk4su9r.png') center fixed no-repeat");
+            $('#box').css('background-size', 'cover');
+            $('#box').css('border', '2px ridge green');
+        })
+
+        $("#windbtn").on('click', function () {
+            $('#box').css('background', "url('https://i.imgur.com/rS8RmZN.gif') center fixed no-repeat");
+            $('#box').css('background-size', 'cover');
+            $('#box').css('border', '2px ridge whitesmoke');
+        })
+
+
 
         // This resets the box to its original size, color, and opacity. It also hides the #timestamp div text.
         $("#resetbtn").on("click", function () {
-            $("#box").css("background-color", "orange");
+            $("#box").css("background", "rgb(229, 250, 241)");
             $("#box").css("width", '150px');
             $("#box").css("height", "150px");
             $("#box").css("opacity", "1");
+            $('#box').css('border-radius', '0');
+            $('#box').css('border', '2px ridge rgb(229, 250, 241)');
             $("#timestamp").html("");
         })
-
     </script>
 
 </body>
